@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC204BB71CE9C9520043F66B /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC204BB61CE9C9520043F66B /* TrackModel.swift */; };
+		BCC688971CE8256800965D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688961CE8256800965D8D /* AppDelegate.swift */; };
+		BCC688991CE8256800965D8D /* SearchTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688981CE8256800965D8D /* SearchTracksViewController.swift */; };
+		BCC6889C1CE8256800965D8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC6889A1CE8256800965D8D /* Main.storyboard */; };
+		BCC6889E1CE8256800965D8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC6889D1CE8256800965D8D /* Assets.xcassets */; };
+		BCC688A11CE8256800965D8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC6889F1CE8256800965D8D /* LaunchScreen.storyboard */; };
+		BCC688AC1CE8256800965D8D /* TracksDownload_iTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688AB1CE8256800965D8D /* TracksDownload_iTunesTests.swift */; };
+		BCC688B71CE8256800965D8D /* TracksDownload_iTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688B61CE8256800965D8D /* TracksDownload_iTunesUITests.swift */; };
+		BCC688C71CE8329300965D8D /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688C61CE8329300965D8D /* TrackCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCC688A81CE8256800965D8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCC6888B1CE8256800965D8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCC688921CE8256800965D8D;
+			remoteInfo = "TracksDownload-iTunes";
+		};
+		BCC688B31CE8256800965D8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCC6888B1CE8256800965D8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCC688921CE8256800965D8D;
+			remoteInfo = "TracksDownload-iTunes";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BC204BB61CE9C9520043F66B /* TrackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+		BCC688931CE8256800965D8D /* TracksDownload-iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TracksDownload-iTunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC688961CE8256800965D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BCC688981CE8256800965D8D /* SearchTracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTracksViewController.swift; sourceTree = "<group>"; };
+		BCC6889B1CE8256800965D8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCC6889D1CE8256800965D8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCC688A01CE8256800965D8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BCC688A21CE8256800965D8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC688A71CE8256800965D8D /* TracksDownload-iTunesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TracksDownload-iTunesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC688AB1CE8256800965D8D /* TracksDownload_iTunesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksDownload_iTunesTests.swift; sourceTree = "<group>"; };
+		BCC688AD1CE8256800965D8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC688B21CE8256800965D8D /* TracksDownload-iTunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TracksDownload-iTunesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC688B61CE8256800965D8D /* TracksDownload_iTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksDownload_iTunesUITests.swift; sourceTree = "<group>"; };
+		BCC688B81CE8256800965D8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC688C61CE8329300965D8D /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCC688901CE8256800965D8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC688A41CE8256800965D8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC688AF1CE8256800965D8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCC6888A1CE8256800965D8D = {
+			isa = PBXGroup;
+			children = (
+				BCC688951CE8256800965D8D /* TracksDownload-iTunes */,
+				BCC688AA1CE8256800965D8D /* TracksDownload-iTunesTests */,
+				BCC688B51CE8256800965D8D /* TracksDownload-iTunesUITests */,
+				BCC688941CE8256800965D8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCC688941CE8256800965D8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCC688931CE8256800965D8D /* TracksDownload-iTunes.app */,
+				BCC688A71CE8256800965D8D /* TracksDownload-iTunesTests.xctest */,
+				BCC688B21CE8256800965D8D /* TracksDownload-iTunesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCC688951CE8256800965D8D /* TracksDownload-iTunes */ = {
+			isa = PBXGroup;
+			children = (
+				BCC688C51CE8326800965D8D /* Model */,
+				BCC688C41CE8324D00965D8D /* View */,
+				BCC688961CE8256800965D8D /* AppDelegate.swift */,
+				BCC688981CE8256800965D8D /* SearchTracksViewController.swift */,
+				BCC6889A1CE8256800965D8D /* Main.storyboard */,
+				BCC6889D1CE8256800965D8D /* Assets.xcassets */,
+				BCC6889F1CE8256800965D8D /* LaunchScreen.storyboard */,
+				BCC688A21CE8256800965D8D /* Info.plist */,
+			);
+			path = "TracksDownload-iTunes";
+			sourceTree = "<group>";
+		};
+		BCC688AA1CE8256800965D8D /* TracksDownload-iTunesTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCC688AB1CE8256800965D8D /* TracksDownload_iTunesTests.swift */,
+				BCC688AD1CE8256800965D8D /* Info.plist */,
+			);
+			path = "TracksDownload-iTunesTests";
+			sourceTree = "<group>";
+		};
+		BCC688B51CE8256800965D8D /* TracksDownload-iTunesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BCC688B61CE8256800965D8D /* TracksDownload_iTunesUITests.swift */,
+				BCC688B81CE8256800965D8D /* Info.plist */,
+			);
+			path = "TracksDownload-iTunesUITests";
+			sourceTree = "<group>";
+		};
+		BCC688C41CE8324D00965D8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCC688C61CE8329300965D8D /* TrackCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BCC688C51CE8326800965D8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC204BB61CE9C9520043F66B /* TrackModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCC688921CE8256800965D8D /* TracksDownload-iTunes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC688BB1CE8256800965D8D /* Build configuration list for PBXNativeTarget "TracksDownload-iTunes" */;
+			buildPhases = (
+				BCC6888F1CE8256800965D8D /* Sources */,
+				BCC688901CE8256800965D8D /* Frameworks */,
+				BCC688911CE8256800965D8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TracksDownload-iTunes";
+			productName = "TracksDownload-iTunes";
+			productReference = BCC688931CE8256800965D8D /* TracksDownload-iTunes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCC688A61CE8256800965D8D /* TracksDownload-iTunesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC688BE1CE8256800965D8D /* Build configuration list for PBXNativeTarget "TracksDownload-iTunesTests" */;
+			buildPhases = (
+				BCC688A31CE8256800965D8D /* Sources */,
+				BCC688A41CE8256800965D8D /* Frameworks */,
+				BCC688A51CE8256800965D8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCC688A91CE8256800965D8D /* PBXTargetDependency */,
+			);
+			name = "TracksDownload-iTunesTests";
+			productName = "TracksDownload-iTunesTests";
+			productReference = BCC688A71CE8256800965D8D /* TracksDownload-iTunesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BCC688B11CE8256800965D8D /* TracksDownload-iTunesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC688C11CE8256800965D8D /* Build configuration list for PBXNativeTarget "TracksDownload-iTunesUITests" */;
+			buildPhases = (
+				BCC688AE1CE8256800965D8D /* Sources */,
+				BCC688AF1CE8256800965D8D /* Frameworks */,
+				BCC688B01CE8256800965D8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCC688B41CE8256800965D8D /* PBXTargetDependency */,
+			);
+			name = "TracksDownload-iTunesUITests";
+			productName = "TracksDownload-iTunesUITests";
+			productReference = BCC688B21CE8256800965D8D /* TracksDownload-iTunesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCC6888B1CE8256800965D8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = guo;
+				TargetAttributes = {
+					BCC688921CE8256800965D8D = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BCC688A61CE8256800965D8D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BCC688921CE8256800965D8D;
+					};
+					BCC688B11CE8256800965D8D = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BCC688921CE8256800965D8D;
+					};
+				};
+			};
+			buildConfigurationList = BCC6888E1CE8256800965D8D /* Build configuration list for PBXProject "TracksDownload-iTunes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCC6888A1CE8256800965D8D;
+			productRefGroup = BCC688941CE8256800965D8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCC688921CE8256800965D8D /* TracksDownload-iTunes */,
+				BCC688A61CE8256800965D8D /* TracksDownload-iTunesTests */,
+				BCC688B11CE8256800965D8D /* TracksDownload-iTunesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCC688911CE8256800965D8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC688A11CE8256800965D8D /* LaunchScreen.storyboard in Resources */,
+				BCC6889E1CE8256800965D8D /* Assets.xcassets in Resources */,
+				BCC6889C1CE8256800965D8D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC688A51CE8256800965D8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC688B01CE8256800965D8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCC6888F1CE8256800965D8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC688991CE8256800965D8D /* SearchTracksViewController.swift in Sources */,
+				BC204BB71CE9C9520043F66B /* TrackModel.swift in Sources */,
+				BCC688971CE8256800965D8D /* AppDelegate.swift in Sources */,
+				BCC688C71CE8329300965D8D /* TrackCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC688A31CE8256800965D8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC688AC1CE8256800965D8D /* TracksDownload_iTunesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC688AE1CE8256800965D8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC688B71CE8256800965D8D /* TracksDownload_iTunesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCC688A91CE8256800965D8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCC688921CE8256800965D8D /* TracksDownload-iTunes */;
+			targetProxy = BCC688A81CE8256800965D8D /* PBXContainerItemProxy */;
+		};
+		BCC688B41CE8256800965D8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCC688921CE8256800965D8D /* TracksDownload-iTunes */;
+			targetProxy = BCC688B31CE8256800965D8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BCC6889A1CE8256800965D8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC6889B1CE8256800965D8D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCC6889F1CE8256800965D8D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC688A01CE8256800965D8D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCC688B91CE8256800965D8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BCC688BA1CE8256800965D8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCC688BC1CE8256800965D8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "TracksDownload-iTunes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo.TracksDownload-iTunes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BCC688BD1CE8256800965D8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "TracksDownload-iTunes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo.TracksDownload-iTunes";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BCC688BF1CE8256800965D8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TracksDownload-iTunesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo.TracksDownload-iTunesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TracksDownload-iTunes.app/TracksDownload-iTunes";
+			};
+			name = Debug;
+		};
+		BCC688C01CE8256800965D8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TracksDownload-iTunesTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo.TracksDownload-iTunesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TracksDownload-iTunes.app/TracksDownload-iTunes";
+			};
+			name = Release;
+		};
+		BCC688C21CE8256800965D8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TracksDownload-iTunesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo.TracksDownload-iTunesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "TracksDownload-iTunes";
+			};
+			name = Debug;
+		};
+		BCC688C31CE8256800965D8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TracksDownload-iTunesUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guo.TracksDownload-iTunesUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "TracksDownload-iTunes";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCC6888E1CE8256800965D8D /* Build configuration list for PBXProject "TracksDownload-iTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC688B91CE8256800965D8D /* Debug */,
+				BCC688BA1CE8256800965D8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCC688BB1CE8256800965D8D /* Build configuration list for PBXNativeTarget "TracksDownload-iTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC688BC1CE8256800965D8D /* Debug */,
+				BCC688BD1CE8256800965D8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCC688BE1CE8256800965D8D /* Build configuration list for PBXNativeTarget "TracksDownload-iTunesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC688BF1CE8256800965D8D /* Debug */,
+				BCC688C01CE8256800965D8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCC688C11CE8256800965D8D /* Build configuration list for PBXNativeTarget "TracksDownload-iTunesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC688C21CE8256800965D8D /* Debug */,
+				BCC688C31CE8256800965D8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BCC6888B1CE8256800965D8D /* Project object */;
+}
