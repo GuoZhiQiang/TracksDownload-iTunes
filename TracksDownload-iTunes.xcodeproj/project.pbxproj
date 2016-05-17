@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC204BB71CE9C9520043F66B /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC204BB61CE9C9520043F66B /* TrackModel.swift */; };
+		BC2557B81CEAC8ED0085A98E /* DownloadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2557B71CEAC8ED0085A98E /* DownloadModel.swift */; };
 		BCC688971CE8256800965D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688961CE8256800965D8D /* AppDelegate.swift */; };
 		BCC688991CE8256800965D8D /* SearchTracksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC688981CE8256800965D8D /* SearchTracksViewController.swift */; };
 		BCC6889C1CE8256800965D8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC6889A1CE8256800965D8D /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		BC204BB61CE9C9520043F66B /* TrackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+		BC2557B71CEAC8ED0085A98E /* DownloadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadModel.swift; sourceTree = "<group>"; };
 		BCC688931CE8256800965D8D /* TracksDownload-iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TracksDownload-iTunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC688961CE8256800965D8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC688981CE8256800965D8D /* SearchTracksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTracksViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				BC204BB61CE9C9520043F66B /* TrackModel.swift */,
+				BC2557B71CEAC8ED0085A98E /* DownloadModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				BCC688991CE8256800965D8D /* SearchTracksViewController.swift in Sources */,
 				BC204BB71CE9C9520043F66B /* TrackModel.swift in Sources */,
+				BC2557B81CEAC8ED0085A98E /* DownloadModel.swift in Sources */,
 				BCC688971CE8256800965D8D /* AppDelegate.swift in Sources */,
 				BCC688C71CE8329300965D8D /* TrackCell.swift in Sources */,
 			);

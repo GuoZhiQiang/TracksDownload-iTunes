@@ -9,22 +9,39 @@
 import UIKit
 import MediaPlayer
 
-class SearchTracksViewController: UIViewController {
+class SearchTracksViewController: UIViewController, NSURLSessionDelegate {
+    
+    // MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     var searchResults = [TrackModel]()
+    var trackDownload = [String: DownloadModel]()
+    
+    
+    var task_queryTracks: NSURLSessionTask?
+    let session_queryTracks = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     
     lazy var tapRecognizer: UITapGestureRecognizer = {
+        
         var recognizer = UITapGestureRecognizer(target:self, action: #selector(self.dismissKeyboard))
         return recognizer
     }()
+    lazy var session_downloadTracks: NSURLSession = {
+        
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        return session
+    }()
 
+    // MARK: Sys
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tintColor = UIColor(red: 242/255, green: 71/255, blue: 63/255, alpha: 1)
+        self.view.backgroundColor = tintColor
         tableView.tableFooterView = UIView()
     }
 
@@ -73,7 +90,17 @@ class SearchTracksViewController: UIViewController {
     }
     
     func startDownload(track: TrackModel) {
-        // TODO
+        
+        if let urlString = track.trackPreviewUrl, url = NSURL(string:urlString) {
+            
+            var download = DownloadModel(downloadUrl: urlString)
+            
+            download.downloadTask = session_downloadTracks.downloadTaskWithURL(url)
+            download.downloadTask?.resume()
+            download.isDownloading = true
+    
+            trackDownload[urlString] = download
+        }
     }
     
     func pauseDownload(track: TrackModel) {
@@ -90,6 +117,21 @@ class SearchTracksViewController: UIViewController {
     
     func dismissKeyboard() {
         searchBar.resignFirstResponder()
+    }
+    
+    // 返回正在下载的歌曲所在的 cell 的索引
+    func cellIndexOfDownloadTrack(downloadTrack:NSURLSessionDownloadTask) -> Int? {
+        
+        if let url = downloadTrack.originalRequest?.URL?.absoluteString {
+            
+            for (index, track) in searchResults.enumerate() {
+                
+                if url == track.trackPreviewUrl {
+                    return index
+                }
+            }
+        }
+        return nil
     }
     
     // 判断本地是否存在指定歌曲
@@ -128,6 +170,59 @@ class SearchTracksViewController: UIViewController {
         }
     }
 
+}
+
+// MARK: UISearchBarDelegate
+
+extension SearchTracksViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        dismissKeyboard()
+        
+        let searchString = searchBar.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        
+        if !searchString.isEmpty {
+            
+            // 1
+            if task_queryTracks != nil {
+                task_queryTracks?.cancel()
+            }
+            // 2
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            // 3 设置允许包含在搜索关键词中的字符
+            let expectedCharSet = NSCharacterSet.URLQueryAllowedCharacterSet()
+            let searchTerm = searchString.stringByAddingPercentEncodingWithAllowedCharacters(expectedCharSet)
+            
+            // 4
+            let urlString = "http://itunes.apple.com/search?media=music&entity=song&term=\(searchTerm!)"
+            let url = NSURL(string: urlString)
+            
+            // 5 生成查询任务对象
+            task_queryTracks = session_queryTracks.dataTaskWithURL(url!, completionHandler: { [unowned self](data, response, error) in
+                
+                // 6
+                dispatch_async(dispatch_get_main_queue(), {
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                })
+                
+                // 7
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                else if let httpResponse = response as? NSHTTPURLResponse {
+                    
+                    if httpResponse.statusCode == 200 {
+                        self.updateSearchResults(data)
+                    }
+                }
+            })
+            
+            // 8 开始查询
+            task_queryTracks?.resume()
+        }
+    }
 }
 
 // MARK: TrackCellDelegate
@@ -191,7 +286,7 @@ extension SearchTracksViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell", forIndexPath: indexPath) as!TrackCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TRACK_CELL", forIndexPath: indexPath) as!TrackCell
         cell.delegate = self
         
         let track = searchResults[indexPath.row]
@@ -222,6 +317,69 @@ extension SearchTracksViewController: UITableViewDelegate {
             playDownloadTrack(track)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+}
+
+// MARK: NSURLSessionDownloadDelegate
+
+extension SearchTracksViewController: NSURLSessionDownloadDelegate {
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        
+        // 1
+        let originalURL: String? = downloadTask.originalRequest?.URL?.absoluteString
+        if let url = originalURL, destinationURL = localFilePathForUrl(url) {
+            
+            print(destinationURL)
+            
+            // 2
+            let fileManager = NSFileManager.defaultManager()
+            do {
+                try fileManager.removeItemAtURL(destinationURL)
+            } catch {
+                //
+            }
+            
+            do {
+                try fileManager.copyItemAtURL(location, toURL: destinationURL)
+            } catch let error as NSError {
+                print("Could not copy file to disk:\(error.localizedDescription)")
+            }
+        }
+        
+        // 3
+        if let url = originalURL {
+            
+            trackDownload[url] = nil
+            // 4
+            if let index = cellIndexOfDownloadTrack(downloadTask) {
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    [unowned self] in
+                    self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: index,inSection: 0)], withRowAnimation: .None)
+                })
+            }
+        }
+    }
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        
+        // 1
+        if let url = downloadTask.originalRequest?.URL?.absoluteString, var trackDownload = trackDownload[url] {
+            
+            // 2
+            trackDownload.downloadProgress = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
+            // 3
+            let totalSize = NSByteCountFormatter.stringFromByteCount(totalBytesExpectedToWrite, countStyle: .Binary)
+            // 4
+            if let index = cellIndexOfDownloadTrack(downloadTask), trackCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? TrackCell {
+                
+                dispatch_async(dispatch_get_main_queue(), { 
+                    trackCell.v_progress.progress = trackDownload.downloadProgress
+                    trackCell.lb_progress.text = String(format: "%.1f%% of %@", trackDownload.downloadProgress*100,totalSize)
+                })
+            }
+        }
     }
 }
 
