@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search Tracks View Controller-->
@@ -86,13 +87,13 @@
                                                 <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L4g-px-9ly">
                                                     <rect key="frame" x="14" y="52" width="476" height="2"/>
                                                 </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-zR-78p">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-zR-78p">
                                                     <rect key="frame" x="507" y="44" width="84" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="ic9-Nz-iLu"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -103,18 +104,18 @@
                                                 <constraint firstItem="NVy-nw-oDM" firstAttribute="top" secondItem="bvo-zU-rEl" secondAttribute="top" constant="8" id="CwY-1j-sGT"/>
                                                 <constraint firstItem="fbj-2j-WTY" firstAttribute="top" secondItem="NVy-nw-oDM" secondAttribute="bottom" constant="1" id="F7o-Dc-kqe"/>
                                                 <constraint firstItem="fbj-2j-WTY" firstAttribute="leading" secondItem="bvo-zU-rEl" secondAttribute="leading" constant="14" id="H4z-QP-WZh"/>
-                                                <constraint firstItem="fbj-2j-WTY" firstAttribute="width" secondItem="NVy-nw-oDM" secondAttribute="width" id="Ovy-2h-MYd"/>
                                                 <constraint firstItem="CGz-Gf-zHL" firstAttribute="top" secondItem="bvo-zU-rEl" secondAttribute="top" constant="9" id="RXZ-wb-g1T"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hce-zR-78p" secondAttribute="bottom" constant="3.5" id="TnC-3P-rpQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="CGz-Gf-zHL" secondAttribute="trailing" constant="8" id="YSY-J2-yve"/>
                                                 <constraint firstAttribute="trailing" secondItem="qYI-md-o9v" secondAttribute="trailing" constant="17" id="Zm2-FC-CpW"/>
                                                 <constraint firstItem="L4g-px-9ly" firstAttribute="centerY" secondItem="Hce-zR-78p" secondAttribute="centerY" constant="2" id="a3h-et-MSX"/>
                                                 <constraint firstItem="L4g-px-9ly" firstAttribute="leading" secondItem="bvo-zU-rEl" secondAttribute="leading" constant="14" id="f4q-YA-82c"/>
-                                                <constraint firstItem="qYI-md-o9v" firstAttribute="leading" secondItem="NVy-nw-oDM" secondAttribute="trailing" constant="24" id="g2t-z1-WvE"/>
-                                                <constraint firstItem="Hce-zR-78p" firstAttribute="leading" secondItem="L4g-px-9ly" secondAttribute="trailing" constant="17" id="hyg-kX-X6p"/>
+                                                <constraint firstAttribute="trailing" secondItem="L4g-px-9ly" secondAttribute="trailing" constant="110" id="fVf-ei-MyI"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NVy-nw-oDM" secondAttribute="trailing" constant="102" id="jZZ-aE-EHY"/>
                                                 <constraint firstItem="Hce-zR-78p" firstAttribute="top" secondItem="qYI-md-o9v" secondAttribute="bottom" constant="5" id="mgh-W2-uLc"/>
                                                 <constraint firstItem="NVy-nw-oDM" firstAttribute="leading" secondItem="bvo-zU-rEl" secondAttribute="leading" constant="14" id="mvL-fr-ity"/>
                                                 <constraint firstItem="qYI-md-o9v" firstAttribute="top" secondItem="bvo-zU-rEl" secondAttribute="top" constant="9" id="rqZ-Nh-g1G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fbj-2j-WTY" secondAttribute="trailing" constant="102" id="vfN-kc-GVy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

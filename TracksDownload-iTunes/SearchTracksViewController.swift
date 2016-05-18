@@ -47,8 +47,6 @@ class SearchTracksViewController: UIViewController, NSURLSessionDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        
     }
     
     // MARK: Action
@@ -93,7 +91,7 @@ class SearchTracksViewController: UIViewController, NSURLSessionDelegate {
         
         if let urlString = track.trackPreviewUrl, url = NSURL(string:urlString) {
             
-            var download = DownloadModel(downloadUrl: urlString)
+            let download = DownloadModel(downloadUrl: urlString)
             
             download.downloadTask = session_downloadTracks.downloadTaskWithURL(url)
             download.downloadTask?.resume()
@@ -104,15 +102,47 @@ class SearchTracksViewController: UIViewController, NSURLSessionDelegate {
     }
     
     func pauseDownload(track: TrackModel) {
-        // TODO
+        
+        if let url = track.trackPreviewUrl, download = trackDownload[url] {
+            
+            if download.isDownloading {
+                download.downloadTask?.cancelByProducingResumeData({ (data) in
+                    
+                    if data != nil {
+                        download.downloadResumeData = data
+                    }
+                })
+                download.isDownloading = false
+            }
+        }
     }
     
     func cancelDownload(track: TrackModel) {
-        // TODO
+        
+        if let url = track.trackPreviewUrl, download = trackDownload[url] {
+            
+            download.downloadTask?.cancel()
+            trackDownload[url] = nil
+        }
     }
     
     func resumeDownload(track: TrackModel) {
-        // TODO
+        
+        if let previewUrl = track.trackPreviewUrl, download = trackDownload[previewUrl] {
+            
+            if let resumeData = download.downloadResumeData {
+                
+                download.downloadTask = session_downloadTracks.downloadTaskWithResumeData(resumeData)
+                download.downloadTask!.resume()
+                download.isDownloading = true
+            }
+            else if let url = NSURL(string: download.downloadUrl) {
+                
+                download.downloadTask = session_downloadTracks.downloadTaskWithURL(url)
+                download.downloadTask!.resume()
+                download.isDownloading = true
+            }
+        }
     }
     
     func dismissKeyboard() {
@@ -291,6 +321,22 @@ extension SearchTracksViewController: UITableViewDataSource {
         
         let track = searchResults[indexPath.row]
         
+        var showDownloadControls = false
+        if let download = trackDownload[track.trackPreviewUrl!] {
+            
+            showDownloadControls = true
+            cell.v_progress.progress = download.downloadProgress
+            cell.lb_progress.text = download.isDownloading ? "Downloading..." : "Paused"
+            
+            let title = download.isDownloading ? "Pause" : "Resume"
+            cell.btn_pause.setTitle(title, forState: .Normal)
+            
+        }
+        cell.v_progress.hidden = !showDownloadControls
+        cell.lb_progress.hidden = !showDownloadControls
+        cell.btn_pause.hidden = !showDownloadControls
+        cell.btn_cancel.hidden = !showDownloadControls
+        
         // 填充属性
         cell.lb_trackName.text = track.trackName
         cell.lb_trackArtist.text = track.trackArtist
@@ -298,7 +344,7 @@ extension SearchTracksViewController: UITableViewDataSource {
         // 根据歌曲是否已经下载，更新下载按钮的状态
         let trackHaveDownloaded = localFileExistsForTrack(track)
         cell.selectionStyle = trackHaveDownloaded ? UITableViewCellSelectionStyle.Gray : UITableViewCellSelectionStyle.None
-        cell.btn_download.hidden = trackHaveDownloaded
+        cell.btn_download.hidden = trackHaveDownloaded || showDownloadControls
         
         return cell
     }
@@ -365,7 +411,7 @@ extension SearchTracksViewController: NSURLSessionDownloadDelegate {
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
         // 1
-        if let url = downloadTask.originalRequest?.URL?.absoluteString, var trackDownload = trackDownload[url] {
+        if let url = downloadTask.originalRequest?.URL?.absoluteString, trackDownload = trackDownload[url] {
             
             // 2
             trackDownload.downloadProgress = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)

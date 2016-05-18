@@ -2,13 +2,13 @@
 //  DownloadModel.swift
 //  TracksDownload-iTunes
 //
-//  Created by guo on 16/5/17.
+//  Created by guo on 16/5/18.
 //  Copyright © 2016年 guo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct DownloadModel {
+class DownloadModel: NSObject {
     
     var downloadUrl: String
     var isDownloading = false
@@ -20,4 +20,5 @@ struct DownloadModel {
     init(downloadUrl: String) {
         self.downloadUrl = downloadUrl
     }
+
 }
